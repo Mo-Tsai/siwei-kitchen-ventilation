@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="四維路中島碳床剖面與氣流 — 施工參考">
+<title>中島碳床剖面</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+<style>
+:root{
+  --bg:#11150F; --panel:#181D16; --ink:#E8ECE4; --mid:#A9B2A2; --soft:#7C8677;
+  --rule:#2B322A;
+  --c-eq:#69696E; --c-glass:#5AAFA5; --c-carc:#AAAAA8;
+  --c-duct:#D67828; --c-in:#96C4D6; --c-pre:#CEC68C; --c-carbon:#20685A;
+  --c-sil:#6896BE; --c-grille:#E2923A; --c-warn:#E06A4A;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:"Noto Sans TC",-apple-system,"Microsoft JhengHei",sans-serif;line-height:1.75}
+.page{max-width:1080px;margin:0 auto;padding:48px 24px 90px;display:flex;flex-direction:column;gap:34px}
+h1{font-size:26px;margin:0;font-weight:500;letter-spacing:.01em}
+.sub{color:var(--mid);margin:0;font-size:15px;max-width:62ch}
+.mono{font-family:"IBM Plex Mono",monospace}
+
+.wrap{display:grid;grid-template-columns:1fr 268px;gap:26px;align-items:start}
+@media(max-width:860px){.wrap{grid-template-columns:1fr}}
+
+figure{margin:0;background:var(--panel);border:1px solid var(--rule);border-radius:3px;padding:18px}
+svg{width:100%;height:auto;display:block}
+
+.side{display:flex;flex-direction:column;gap:18px}
+.card{background:var(--panel);border:1px solid var(--rule);border-radius:3px;padding:18px 18px 20px}
+.card h3{margin:0 0 10px;font-size:13px;letter-spacing:.14em;color:var(--soft);
+  font-family:"IBM Plex Mono",monospace;font-weight:500;text-transform:uppercase}
+.leg{display:flex;flex-direction:column;gap:9px}
+.leg div{display:grid;grid-template-columns:16px 1fr auto;gap:10px;align-items:center;font-size:13.5px}
+.sw{width:16px;height:12px;border-radius:2px}
+.leg span.n{color:var(--soft);font-family:"IBM Plex Mono",monospace;font-size:11.5px}
+
+.kv{display:flex;flex-direction:column;gap:8px;font-size:13.5px}
+.kv div{display:flex;justify-content:space-between;gap:12px}
+.kv b{font-weight:500;color:var(--mid)}
+.kv span{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums}
+.hot{color:var(--c-warn)}
+
+.warn{border-left:3px solid var(--c-warn);background:#241A16;padding:16px 18px;border-radius:2px;font-size:14px}
+.warn b{color:var(--c-warn)}
+
+.ctrl{display:flex;gap:10px;align-items:center;font-size:13px;color:var(--soft)}
+button{font:inherit;font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.08em;
+  background:transparent;color:var(--mid);border:1px solid var(--rule);border-radius:2px;
+  padding:6px 14px;cursor:pointer}
+button:hover{color:var(--ink);border-color:var(--soft)}
+button:focus-visible{outline:2px solid var(--c-grille);outline-offset:2px}
+
+/* ---- 組立動畫：各層由左滑入 ---- */
+.asm{animation:slide 9s cubic-bezier(.22,.9,.3,1) infinite}
+@keyframes slide{
+  0%,4%   {transform:translateX(-300px);opacity:0}
+  14%,86% {transform:translateX(0);opacity:1}
+  96%,100%{transform:translateX(-300px);opacity:0}
+}
+.d1{animation-delay:0s}.d2{animation-delay:.5s}.d3{animation-delay:1s}
+.d4{animation-delay:1.5s}.d5{animation-delay:2s}.d6{animation-delay:2.5s}
+
+/* ---- 氣流 ---- */
+.flow{fill:none;stroke:#7FD8C4;stroke-width:2.6;stroke-linecap:round;
+  stroke-dasharray:9 11;animation:flow 1.4s linear infinite}
+@keyframes flow{to{stroke-dashoffset:-20}}
+
+body.paused .asm,body.paused .flow{animation-play-state:paused}
+@media(prefers-reduced-motion:reduce){
+  .asm{animation:none;transform:none;opacity:1}
+  .flow{animation:none;stroke-dasharray:none}
+}
+.t{fill:var(--mid);font-size:12px;font-family:"Noto Sans TC",sans-serif}
+.tm{fill:var(--soft);font-size:11px;font-family:"IBM Plex Mono",monospace}
+.tw{fill:var(--c-warn);font-size:12px;font-family:"Noto Sans TC",sans-serif}
+</style>
+</head>
+<body>
+<div class="page">
+  <div>
+    <h1>中島碳床 — 剖面與氣流</h1>
+    <p class="sub">依 <span class="mono">260827_3D.3dm</span> 實際幾何繪製，剖切位置 Y=1054.2（通過 ø150 出風口中心）。顏色與 Rhino 圖層一致。</p>
+  </div>
+
+  <div class="ctrl">
+    <button id="pz">暫停 / 播放</button>
+    <span>各層依組立順序滑入；綠色虛線為氣流方向</span>
+  </div>
+
+  <div class="wrap">
+    <figure>
+      <svg viewBox="0 0 620 770" role="img" aria-label="中島剖面圖。檯面下方為 GAGGENAU AL200180 排煙機主機身與風機箱，其底部有一個直徑 150 公釐、朝下的圓形出風口，開口底面在離地 13.25 公分處，而櫃體底板在離地 10 公分，兩者之間只有 3.25 公分。氣流由出風口向下進入踢腳內的扁管，向西送到前區，再依序向上通過進氣靜壓區、前置濾網、加厚活性碳床與靜壓消音箱，最後由北面格柵送回室內。">
+        <defs>
+          <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+            <path d="M0 0 L10 5 L0 10z" fill="#7FD8C4"/>
+          </marker>
+          <marker id="dim" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+            <circle cx="5" cy="5" r="2.4" fill="var(--c-warn)"/>
+          </marker>
+        </defs>
+
+        <!-- 地板 / 樓板 -->
+        <line x1="30" y1="740" x2="590" y2="740" stroke="var(--c-carc)" stroke-width="1.6"/>
+        <text x="30" y="758" class="tm">FL ±0</text>
+
+        <!-- 櫃體外框 -->
+        <rect x="84" y="240" width="434" height="440" fill="none" stroke="var(--c-carc)" stroke-width="1.6"/>
+        <rect x="84" y="218" width="434" height="22" fill="var(--c-carc)" opacity=".55"/>
+        <text x="92" y="212" class="tm">檯面 Z 83.3–87.0</text>
+        <line x1="84" y1="680" x2="518" y2="680" stroke="var(--c-carc)" stroke-width="1.6"/>
+        <text x="92" y="700" class="tm">櫃體底板 Z 10.0</text>
+
+        <!-- ===== 原廠設備 ===== -->
+        <rect x="422" y="222" width="70" height="421" fill="var(--c-eq)" opacity=".85"/>
+        <text x="500" y="330" class="t">AL200180</text>
+        <text x="500" y="348" class="tm">主機身</text>
+
+        <rect x="345" y="444" width="78" height="198" fill="var(--c-eq)" opacity=".65"/>
+        <text x="352" y="470" class="tm">風機箱</text>
+
+        <rect x="102" y="218" width="312" height="34" fill="var(--c-eq)" opacity=".7"/>
+        <text x="112" y="240" class="tm">CI282102 感應爐</text>
+
+        <rect x="486" y="38" width="5" height="180" fill="var(--c-glass)"/>
+        <text x="498" y="60" class="t">升降玻璃屏</text>
+        <text x="498" y="78" class="tm">Z 87 – 117</text>
+
+        <!-- ø150 出風口：兩條同心壁 -->
+        <rect x="357" y="642" width="4" height="19" fill="var(--c-warn)"/>
+        <rect x="445" y="642" width="4" height="19" fill="var(--c-warn)"/>
+        <text x="352" y="600" class="tw">ø150 出風口・朝下</text>
+        <text x="352" y="616" class="tm">底面 Z 13.25</text>
+        <line x1="392" y1="622" x2="400" y2="640" stroke="var(--c-warn)" stroke-width="1"/>
+
+        <!-- 3.25 cm 警示 -->
+        <line x1="403" y1="661" x2="403" y2="680" stroke="var(--c-warn)" stroke-width="1.4" marker-start="url(#dim)" marker-end="url(#dim)"/>
+        <text x="412" y="676" class="tw">只有 3.25 cm</text>
+
+        <!-- ===== 新增層（動畫滑入）===== -->
+        <g class="asm d2">
+          <rect x="84" y="644" width="249" height="24" fill="var(--c-in)" opacity=".8"/>
+          <text x="92" y="661" class="tm" fill="#0E1A1F">02 進氣靜壓區</text>
+        </g>
+        <g class="asm d3">
+          <rect x="84" y="620" width="249" height="24" fill="var(--c-pre)" opacity=".85"/>
+          <text x="92" y="637" class="tm" fill="#1E1C0C">03 前置濾網 40mm</text>
+        </g>
+        <g class="asm d4">
+          <rect x="84" y="590" width="249" height="30" fill="var(--c-carbon)"/>
+          <text x="92" y="610" class="tm" fill="#DDEFE8">04 活性碳床 50mm</text>
+        </g>
+        <g class="asm d5">
+          <rect x="84" y="252" width="249" height="338" fill="var(--c-sil)" opacity=".42"/>
+          <text x="92" y="274" class="tm" fill="#DCE9F2">05 靜壓消音箱</text>
+        </g>
+        <g class="asm d6">
+          <rect x="84" y="300" width="8" height="300" fill="var(--c-grille)"/>
+          <text x="98" y="452" class="t" fill="var(--c-grille)">06 北面格柵</text>
+          <text x="98" y="470" class="tm">→ 送回室內</text>
+        </g>
+
+        <g class="asm d1">
+          <rect x="120" y="668" width="312" height="54" fill="var(--c-duct)"/>
+          <text x="130" y="700" class="tm" fill="#241305">01 扁管 220×90・走踢腳層</text>
+        </g>
+        <!-- ===== 氣流 ===== -->
+        <path d="M403 661 L403 690 C403 706 392 712 376 712 L150 712 C124 712 112 700 112 682 L112 300"
+              class="flow" marker-end="url(#ar)"/>
+
+        <!-- 尺寸帶 -->
+        <line x1="60" y1="740" x2="60" y2="218" stroke="var(--rule)" stroke-width="1"/>
+        <text x="36" y="686" class="tm">10</text>
+        <text x="36" y="596" class="tm">25</text>
+        <text x="36" y="258" class="tm">81</text>
+        <text x="36" y="224" class="tm">87</text>
+      </svg>
+    </figure>
+
+    <div class="side">
+      <div class="card">
+        <h3>圖層對照</h3>
+        <div class="leg">
+          <div><i class="sw" style="background:var(--c-eq)"></i>原廠設備<span class="n">GAGGENAU</span></div>
+          <div><i class="sw" style="background:var(--c-glass)"></i>升降玻璃屏<span class="n">Z87–117</span></div>
+          <div><i class="sw" style="background:var(--c-carc)"></i>櫃體與檯面<span class="n">REF</span></div>
+          <div><i class="sw" style="background:var(--c-duct)"></i>扁管<span class="n">01</span></div>
+          <div><i class="sw" style="background:var(--c-in)"></i>進氣靜壓區<span class="n">02</span></div>
+          <div><i class="sw" style="background:var(--c-pre)"></i>前置濾網<span class="n">03</span></div>
+          <div><i class="sw" style="background:var(--c-carbon)"></i>活性碳床<span class="n">04</span></div>
+          <div><i class="sw" style="background:var(--c-sil)"></i>靜壓消音箱<span class="n">05</span></div>
+          <div><i class="sw" style="background:var(--c-grille)"></i>北面格柵<span class="n">06</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>出風口定位</h3>
+        <div class="kv">
+          <div><b>形式</b><span>ø150 圓形・朝下</span></div>
+          <div><b>內徑 / 壁厚</b><span>ø148 / 2 mm</span></div>
+          <div><b>開口底面</b><span>Z 13.25</span></div>
+          <div><b>距櫃體西內壁</b><span>53.2 cm</span></div>
+          <div><b>距櫃體東內壁</b><span>19.1 cm</span></div>
+          <div><b>距櫃體南內壁</b><span>70.9 cm</span></div>
+          <div><b>距櫃體北內壁</b><span>49.1 cm</span></div>
+          <div><b class="hot">到櫃體底板</b><span class="hot">3.25 cm</span></div>
+        </div>
+      </div>
+
+      <div class="warn">
+        <b>櫃體必須配合的一件事</b><br>
+        出風口朝下、開口在 Z 13.25，而櫃體底板在 Z 10 —— 中間只有 <b>3.25 cm</b>。ø150 彎頭要 15–20 cm，扁管也要 8.9 cm。<br><br>
+        <b>櫃體底板必須在此開孔</b>，讓管路落進踢腳層（Z 0–10）再轉向。開孔中心距櫃體西內壁 53.2、北內壁 49.1。
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+document.getElementById('pz').addEventListener('click',function(){
+  document.body.classList.toggle('paused');
+});
+</script>
+</body>
+</html>
