@@ -200,8 +200,8 @@ ol.steps li::before {
   font-family: "IBM Plex Mono", ui-monospace, monospace;
   font-size: 11.5px; color: var(--accent); padding-top: 2px;
 }
-ol.steps b { font-weight: 500; }
-ol.steps span { color: var(--ink-mid); }
+ol.steps .s-txt { color: var(--ink-mid); min-width: 0; }
+ol.steps b { font-weight: 500; color: var(--ink); }
 
 .layer {
   background: var(--surface); border: 1px solid var(--rule);
@@ -341,87 +341,72 @@ footer {
     <p class="muted">中島的排煙、櫃內的過濾、天花板的小排氣、以及既有的新風與除濕，是一套連在一起的系統。</p>
 
     <figure>
-      <svg viewBox="0 0 880 620" role="img" aria-label="廚房整體氣流動畫剖面。油煙從鍋邊被下吸式抽走，進入中島下櫃依序通過金屬濾油網、前置濾網、加厚活性碳床與靜壓消音箱，再由側面低速送回室內。室內殘留的氣味、水氣與熱由天花板的小排氣送出室外，新風系統則從另一側補進乾淨空氣，除濕機負責室內濕度。">
+      <svg viewBox="0 0 880 560" role="img" aria-label="廚房整體氣流動畫剖面。一條連續的氣流從鍋邊被抽進檯面下，向下穿過金屬濾油網、前置濾網、加厚活性碳床與靜壓消音箱，再由側面低速送回室內。室內殘留的氣味、水氣與熱由天花板的小排氣送出室外，新風系統從另一側補進乾淨空氣，除濕機負責室內濕度。">
         <defs>
           <marker id="s-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
             <path d="M 0 0 L 10 5 L 0 10 z" class="mk-a"></path>
           </marker>
         </defs>
 
-        <!-- 天花板與地板 -->
-        <line x1="60" y1="70" x2="820" y2="70" class="dg-line"></line>
-        <line x1="60" y1="560" x2="820" y2="560" class="dg-line"></line>
+        <line x1="60" y1="54" x2="820" y2="54" class="dg-line"></line>
+        <line x1="60" y1="520" x2="820" y2="520" class="dg-line"></line>
 
-        <!-- 新風送風口 -->
-        <rect x="108" y="58" width="74" height="12" class="dg-solid"></rect>
-        <text x="86" y="44" class="dg-ta">新風系統・送風</text>
+        <rect x="180" y="42" width="74" height="12" class="dg-solid"></rect>
+        <text x="156" y="32" class="dg-ta">新風系統・送風</text>
 
-        <!-- 小排氣口 -->
-        <rect x="618" y="58" width="84" height="12" class="dg-solid"></rect>
-        <text x="596" y="44" class="dg-ta">小排氣</text>
-        <text x="712" y="30" class="dg-ta">→ 室外</text>
+        <rect x="620" y="42" width="84" height="12" class="dg-solid"></rect>
+        <text x="596" y="32" class="dg-ta">小排氣</text>
+        <text x="686" y="32" class="dg-ta">→ 室外</text>
+        <path d="M 662 40 L 662 16" class="flow" marker-end="url(#s-a)"></path>
 
-        <!-- 中島量體 -->
-        <rect x="250" y="330" width="330" height="200" class="dg-line"></rect>
-        <line x1="238" y1="330" x2="592" y2="330" class="dg-line"></line>
-        <rect x="286" y="325" width="150" height="5" class="dg-solid"></rect>
-        <path d="M 322 311 L 378 311 L 373 327 L 327 327 Z" class="dg-solid"></path>
-        <line x1="378" y1="314" x2="404" y2="309" class="dg-line"></line>
-        <rect x="448" y="320" width="16" height="10" class="dg-solid"></rect>
-        <rect x="452" y="270" width="7" height="50" class="dg-panel"></rect>
+        <rect x="250" y="270" width="340" height="210" class="dg-line"></rect>
+        <line x1="238" y1="270" x2="602" y2="270" class="dg-line"></line>
+        <rect x="286" y="265" width="150" height="5" class="dg-solid"></rect>
+        <path d="M 320 251 L 376 251 L 371 267 L 325 267 Z" class="dg-solid"></path>
+        <line x1="376" y1="254" x2="402" y2="249" class="dg-line"></line>
+        <rect x="496" y="260" width="18" height="10" class="dg-solid"></rect>
+        <rect x="500" y="214" width="7" height="46" class="dg-panel"></rect>
 
-        <!-- 01 鍋邊捕捉 -->
-        <path d="M 352 303 C 360 282 400 272 444 280" class="flow" marker-end="url(#s-a)"></path>
-        <text x="388" y="258" class="dg-n">01</text>
+        <rect x="272" y="296" width="296" height="24" class="dg-band"></rect>
+        <text x="288" y="313" class="dg-ts">金屬濾油網</text>
 
-        <!-- 進入下櫃 -->
-        <path d="M 456 334 L 456 350" class="flow" marker-end="url(#s-a)"></path>
+        <rect x="272" y="326" width="296" height="24" class="dg-band"></rect>
+        <text x="288" y="343" class="dg-ts">前置濾網</text>
 
-        <!-- 02 櫃內處理 -->
-        <rect x="270" y="356" width="290" height="22" class="dg-band"></rect>
-        <text x="284" y="372" class="dg-ts">金屬濾油網</text>
+        <rect x="272" y="356" width="296" height="50" class="dg-band"></rect>
+        <rect x="272" y="356" width="296" height="50" class="dg-carbon"></rect>
+        <text x="288" y="378" class="dg-t">加厚活性碳床</text>
+        <text x="288" y="396" class="dg-ts">約 11 kg</text>
 
-        <rect x="270" y="384" width="290" height="22" class="dg-band"></rect>
-        <text x="284" y="400" class="dg-ts">前置濾網</text>
+        <rect x="272" y="412" width="296" height="46" class="dg-band"></rect>
+        <text x="288" y="432" class="dg-ts">靜壓消音箱</text>
+        <text x="288" y="449" class="dg-ts">降低運轉噪音</text>
 
-        <rect x="270" y="412" width="290" height="46" class="dg-band"></rect>
-        <rect x="270" y="412" width="290" height="46" class="dg-carbon"></rect>
-        <text x="284" y="433" class="dg-t">加厚活性碳床</text>
-        <text x="284" y="451" class="dg-ts">約 11 kg，原廠的十倍以上</text>
+        <path d="M 346 249 C 356 231 402 219 450 225 C 486 230 505 244 505 270 L 505 446 C 505 460 514 466 528 466 L 648 466" class="flow" marker-end="url(#s-a)"></path>
 
-        <rect x="270" y="464" width="290" height="40" class="dg-band"></rect>
-        <text x="284" y="480" class="dg-ts">靜壓消音箱</text>
-        <text x="284" y="497" class="dg-ts">降低運轉噪音</text>
+        <text x="392" y="210" class="dg-n">01</text>
+        <text x="522" y="372" class="dg-n">02</text>
+        <text x="588" y="450" class="dg-n">03</text>
+        <text x="560" y="492" class="dg-ts">低速送回室內</text>
 
-        <line x1="258" y1="356" x2="258" y2="504" class="dg-thin"></line>
-        <text x="222" y="434" class="dg-n">02</text>
+        <path d="M 664 452 C 752 382 762 186 668 82" class="flow flow-s" marker-end="url(#s-a)"></path>
+        <text x="782" y="258" class="dg-n">04</text>
 
-        <!-- 03 側面送回室內 -->
-        <path d="M 584 488 L 648 488" class="flow" marker-end="url(#s-a)"></path>
-        <text x="600" y="472" class="dg-n">03</text>
-        <text x="600" y="512" class="dg-ts">低速送回室內</text>
+        <path d="M 217 58 C 217 140 230 192 286 214" class="flow flow-s" marker-end="url(#s-a)"></path>
+        <text x="176" y="176" class="dg-n">05</text>
 
-        <!-- 04 殘留與水氣被小排氣帶走 -->
-        <path d="M 686 458 C 762 404 768 214 670 100" class="flow flow-s" marker-end="url(#s-a)"></path>
-        <text x="784" y="300" class="dg-n">04</text>
-
-        <!-- 05 新風補進來 -->
-        <path d="M 146 76 C 146 160 152 250 194 322" class="flow flow-s" marker-end="url(#s-a)"></path>
-        <text x="106" y="250" class="dg-n">05</text>
-
-        <!-- 除濕機 -->
-        <rect x="706" y="498" width="88" height="62" class="dg-line"></rect>
-        <text x="716" y="534" class="dg-ts">除濕機</text>
+        <rect x="700" y="458" width="88" height="62" class="dg-line"></rect>
+        <text x="712" y="494" class="dg-ts">除濕機</text>
       </svg>
       <figcaption>綠色虛線是空氣流動的方向。中島這一段是封閉的循環（01 至 03），天花板的小排氣與新風系統（04、05）則負責把室內整體的空氣換掉。</figcaption>
     </figure>
 
     <ol class="steps">
-      <li><b>鍋邊捕捉</b><span>　油煙在剛離開鍋子、還沒擴散的時候，被橫向抽進檯面下。</span></li>
-      <li><b>櫃內處理</b><span>　依序通過濾油網、前置濾網、加厚活性碳床與靜壓消音箱。</span></li>
-      <li><b>送回室內</b><span>　處理過的空氣由側面低速送回，風速極低，沒有吹拂感。</span></li>
-      <li><b>小排氣帶走殘留</b><span>　天花板的小排氣把碳床攔不下的氣味、以及煮飯的水氣和熱送出室外。</span></li>
-      <li><b>新風補進乾淨空氣</b><span>　新風系統從另一側補進等量的新鮮空氣，室內壓力維持平衡。</span></li>
+      <li><span class="s-txt"><b>鍋邊捕捉</b>　油煙在剛離開鍋子、還沒擴散的時候，被橫向抽進檯面下。</span></li>
+      <li><span class="s-txt"><b>櫃內處理</b>　依序通過濾油網、前置濾網、加厚活性碳床與靜壓消音箱。</span></li>
+      <li><span class="s-txt"><b>送回室內</b>　處理過的空氣由側面低速送回，風速極低，沒有吹拂感。</span></li>
+      <li><span class="s-txt"><b>小排氣帶走殘留</b>　天花板的小排氣把碳床攔不下的氣味、以及煮飯的水氣和熱送出室外。</span></li>
+      <li><span class="s-txt"><b>新風補進乾淨空氣</b>　新風系統從另一側補進等量的新鮮空氣，室內壓力維持平衡。</span></li>
     </ol>
   </section>
 
