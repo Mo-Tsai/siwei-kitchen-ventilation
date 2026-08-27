@@ -207,6 +207,61 @@ figcaption { font-size: 13.5px; color: var(--ink-soft); line-height: 1.75; max-w
 .mk-c      { fill: var(--caution); }
 .mk-i      { fill: currentColor; }
 
+/* ---------- 氣流動畫 ---------- */
+
+.flow {
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-dasharray: 7 9;
+  animation: flow 1.5s linear infinite;
+}
+.flow-a { stroke: var(--accent); }
+.flow-c { stroke: var(--caution); }
+@keyframes flow { to { stroke-dashoffset: -16; } }
+
+.puff { opacity: 0; }
+.puff-r { animation: puffR 4.4s linear infinite; }
+.puff-l { animation: puffL 4.4s linear infinite; }
+.d1 { animation-delay: 0s; }
+.d2 { animation-delay: 1.45s; }
+.d3 { animation-delay: 2.9s; }
+
+@keyframes puffR {
+  0%   { transform: translateX(0);     opacity: 0; }
+  12%  { opacity: .85; }
+  80%  { opacity: .85; }
+  100% { transform: translateX(168px); opacity: 0; }
+}
+@keyframes puffL {
+  0%   { transform: translateX(0);      opacity: .85; }
+  62%  { transform: translateX(-150px); opacity: .85; }
+  100% { transform: translateX(-150px) translateY(-96px); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flow { animation: none; stroke-dasharray: none; opacity: .85; }
+  .puff { animation: none; opacity: .85; }
+}
+
+/* ---------- 判定列 ---------- */
+
+.rule-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.rule {
+  border: 1px solid var(--rule); background: var(--surface);
+  padding: 20px 22px; display: flex; flex-direction: column; gap: 6px;
+}
+.rule.no  { border-left: 3px solid var(--caution); }
+.rule.yes { border-left: 3px solid var(--accent); }
+.rule .verdict-k {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+}
+.rule.no  .verdict-k { color: var(--caution); }
+.rule.yes .verdict-k { color: var(--accent); }
+.rule .what { font-weight: 500; font-size: 17px; }
+.rule p { font-size: 14.5px; color: var(--ink-mid); }
+
 /* ---------- layers ---------- */
 
 .layer {
@@ -580,15 +635,120 @@ footer {
         </div>
         <p class="muted">內循環有一個補不了的洞：<strong>它永遠不排濕、不排熱。</strong>加厚碳床能處理氣味，但煮一鍋水產生的水氣和熱，全部留在室內。這一點靠任何濾網都改善不了。</p>
         <p class="muted">但這裡有一個現成的機會——<strong>B 案原本要用的那條往上通到室外的管路，路徑是通的（大樑閃避已於工程面處理完成）。B 案不做了，那條路就空著。</strong></p>
+
+        <h3>那根管子要做「排氣」，不是「進氣」</h3>
+        <p class="muted">這是整個配置最關鍵、也最容易做反的一個決定。方向決定了油煙味最後往哪裡跑：</p>
+
+        <figure>
+          <svg viewBox="0 0 760 380" role="img" aria-label="動畫對照圖。左側做進氣：空氣被送進廚房，廚房形成正壓，氣流由廚房流向餐廳客廳，油煙味被推進生活空間。右側做排氣：空氣由廚房抽出，廚房形成負壓，氣流由餐廳客廳流向廚房再排出室外，油煙味被關在廚房內。">
+            <defs>
+              <marker id="f-c" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" class="mk-c"></path>
+              </marker>
+              <marker id="f-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" class="mk-a"></path>
+              </marker>
+            </defs>
+
+            <!-- ===== 左：進氣（錯） ===== -->
+            <text x="30" y="32" class="dg-tt">做進氣　→　廚房正壓</text>
+
+            <line x1="30" y1="86" x2="350" y2="86" class="dg-line"></line>
+            <line x1="30" y1="300" x2="350" y2="300" class="dg-line"></line>
+            <line x1="196" y1="86" x2="196" y2="300" class="dg-dash"></line>
+            <text x="44" y="110" class="dg-ts">廚房</text>
+            <text x="212" y="110" class="dg-ts">餐廳・客廳</text>
+
+            <rect x="72" y="238" width="96" height="62" class="dg-line"></rect>
+            <rect x="98" y="74" width="44" height="12" class="dg-solid"></rect>
+            <text x="150" y="70" class="dg-tc">進氣</text>
+
+            <path d="M 120 88 L 120 130" class="flow flow-c" marker-end="url(#f-c)"></path>
+            <path d="M 120 142 C 120 178 130 196 162 196 L 316 196" class="flow flow-c" marker-end="url(#f-c)"></path>
+
+            <circle cx="150" cy="196" r="5" class="puff puff-r d1" fill="var(--caution)"></circle>
+            <circle cx="150" cy="196" r="5" class="puff puff-r d2" fill="var(--caution)"></circle>
+            <circle cx="150" cy="196" r="5" class="puff puff-r d3" fill="var(--caution)"></circle>
+
+            <text x="44" y="228" class="dg-tc">正壓</text>
+            <text x="30" y="338" class="dg-tc">✗　味道被推進餐廳與客廳</text>
+
+            <!-- ===== 右：排氣（對） ===== -->
+            <text x="410" y="32" class="dg-tt">做排氣　→　廚房負壓</text>
+
+            <line x1="410" y1="86" x2="730" y2="86" class="dg-line"></line>
+            <line x1="410" y1="300" x2="730" y2="300" class="dg-line"></line>
+            <line x1="576" y1="86" x2="576" y2="300" class="dg-dash"></line>
+            <text x="424" y="110" class="dg-ts">廚房</text>
+            <text x="592" y="110" class="dg-ts">餐廳・客廳</text>
+
+            <rect x="452" y="238" width="96" height="62" class="dg-line"></rect>
+            <rect x="478" y="74" width="44" height="12" class="dg-solid"></rect>
+            <text x="530" y="70" class="dg-ta">排氣　→ 室外</text>
+
+            <path d="M 500 84 L 500 44" class="flow flow-a" marker-end="url(#f-a)"></path>
+            <path d="M 700 196 L 540 196 C 510 196 500 178 500 142" class="flow flow-a" marker-end="url(#f-a)"></path>
+
+            <circle cx="656" cy="196" r="5" class="puff puff-l d1" fill="var(--caution)"></circle>
+            <circle cx="656" cy="196" r="5" class="puff puff-l d2" fill="var(--caution)"></circle>
+            <circle cx="656" cy="196" r="5" class="puff puff-l d3" fill="var(--caution)"></circle>
+
+            <text x="424" y="228" class="dg-ta">負壓</text>
+            <text x="410" y="338" class="dg-ta">✓　味道被關在廚房，直接排出室外</text>
+          </svg>
+          <figcaption>橘色圓點代表油煙氣味。做進氣時廚房變正壓，氣流由廚房往生活空間流動，等於主動把味道推出去；做排氣時廚房變負壓，氣流由客廳流向廚房再排出，味道被關在廚房裡。這是所有廚房通風設計的基本原則。</figcaption>
+        </figure>
+
+        <div class="rule-row">
+          <div class="rule no">
+            <span class="verdict-k">不要這樣做</span>
+            <span class="what">進氣</span>
+            <p>不移除任何東西，只是把室外的熱空氣送進來，而且會把油煙味推進客廳。新風系統本來就在送風，這是重複投資。</p>
+          </div>
+          <div class="rule yes">
+            <span class="verdict-k">建議做法</span>
+            <span class="what">排氣</span>
+            <p>把油煙味、水氣、熱從源頭送出室外，並讓廚房維持微負壓，味道不會擴散到生活空間。</p>
+          </div>
+        </div>
+
+        <h3>與既有新風系統的分工</h3>
+        <p class="muted">本案已裝設新風系統與除濕設備，這讓「做排氣」這個結論更確定——<strong>送新鮮空氣進來這件事已經有系統在做了，缺的是把廚房產生的東西送出去的出口。</strong></p>
+        <p class="muted">新風系統對付油煙味只能靠稀釋，而稀釋的效率很低：<strong>要把污染濃度降一半，得把整個空間的換氣量加倍；但在源頭抽走，只需要足夠捕捉它的那一點風量。</strong>這也是不需要再升級成商用新風系統的原因——那是在解錯題。</p>
+
+        <div class="callout">
+          <span class="lbl">絕對不可以這樣接</span>
+          <p><strong>廚房排氣不可以接到新風系統上。</strong>全熱交換機的核心是熱交換芯體，廚房的油氣會在芯體上結膜並使其失效，而且芯體通常無法清洗，只能整顆更換。原廠說明多半明文禁止。</p>
+          <p class="muted">若水電或新風廠商提議「反正已經有新風，接過去就好」，請務必擋下。<strong>廚房排氣必須是完全獨立的一根管，與新風系統無任何交集。</strong></p>
+        </div>
+
+        <h3>建議規格</h3>
+        <div class="tbl-wrap">
+          <table class="spec">
+            <thead>
+              <tr><th scope="col">段位</th><th scope="col">風量</th><th scope="col">使用時機</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">常時</th><td class="num">80–100 m³/h</td><td>全天低速運轉，處理殘留氣味</td></tr>
+              <tr><th scope="row">強檔</th><td class="num">200–250 m³/h</td><td>烹調期間與結束後 30 分鐘</td></tr>
+            </tbody>
+          </table>
+        </div>
         <ul class="pts">
-          <li><strong>只需要一支小排氣。</strong>ø100–150 mm、200–300 m³/h 即可，比 B 案所需的大口徑管容易施作得多。</li>
-          <li><strong>位置要偏開爐面正上方。</strong>裝在正上方會把油煙往上拉，跟下吸式互相拉扯。建議設在廚房區域邊緣或餐廳側。</li>
-          <li><strong>它的工作不是捕捉油煙，是房間層級的換氣。</strong>把下吸式漏掉的殘留、以及內循環排不掉的水氣與熱送出室外。</li>
-          <li><strong>可在烹調期間與結束後持續運轉。</strong>低風量、低噪音，不影響使用。</li>
+          <li><strong>為什麼要分兩段。</strong>新風系統多為平衡式（進出風量相等）。排氣若長時間全開，會打破平衡使室內轉為負壓，空氣改從門窗縫隙進入而<strong>繞過熱交換芯體</strong>，新風的除濕與節能效果等於白做。低速常時運轉幾乎不影響平衡，強檔只在烹調時開啟。</li>
+          <li><strong>管徑 ø100–150 mm 即可</strong>，比 B 案所需的大口徑管容易施作得多。</li>
+          <li><strong>位置要偏開爐面正上方。</strong>裝在正上方會把油煙往上拉，與下吸式互相拉扯。建議設於廚房區域邊緣。</li>
+          <li><strong>要問新風廠商：機器有沒有 boost 輸入、能否與廚房排氣連動。</strong>若可連動，排氣開強檔時新風同步加大送風，全程維持平衡，這是最理想的做法。</li>
         </ul>
+
+        <div class="callout calm">
+          <span class="lbl">與除濕設備的關係</span>
+          <p>內循環會把烹調產生的水氣全部留在室內，<strong>除濕機必須多做一份工</strong>——耗電，而且除濕機本身還會放熱。排氣是在水氣擴散開來之前就送出室外，除濕機根本不需要處理它。這一支排氣對除濕負荷的幫助，是額外的好處。</p>
+        </div>
+
         <div class="callout calm">
           <span class="lbl">為什麼建議加</span>
-          <p>這一支排氣補的，正好是內循環<strong>唯一補不了的那個洞</strong>。成本與施工難度都不高，而且管路路徑已經確認可行，是這份文件裡投資報酬率最高的一項建議。</p>
+          <p>這一支排氣補的，正好是內循環<strong>唯一補不了的那個洞</strong>。成本與施工難度都不高，管路路徑已經確認可行，是這份文件裡投資報酬率最高的一項建議。</p>
         </div>
       </div>
 
@@ -618,7 +778,9 @@ footer {
       <h2>待確認事項</h2>
     </div>
     <ol class="checks">
-      <li><strong>天花板獨立排氣</strong>——請水電確認 B 案原規劃的管路路徑可否改作小排氣使用，並決定出風位置（須偏開爐面）。</li>
+      <li><strong>天花板獨立排氣</strong>——請水電確認 B 案原規劃的管路路徑可否改作小排氣使用，決定出風位置（須偏開爐面），並確認是<strong>排氣</strong>而非進氣。</li>
+      <li><strong>新風系統連動</strong>——向新風廠商確認三件事：機器有無 boost 輸入可與廚房排氣連動、目前的送風量、以及是否為平衡式機種。</li>
+      <li><strong>不可併管</strong>——明確告知水電與新風廠商：廚房排氣須為獨立管路，<strong>不得接入新風系統或全熱交換機</strong>，以免油氣損壞熱交換芯體。</li>
       <li><strong>空調與吊扇配置</strong>——確認中島上方無吊扇、冷氣出風口不朝向中島。此項對下吸式的影響很大，須在空調圖上一併檢討。</li>
       <li><strong>下櫃碳床</strong>——確認櫃體尺寸可容納 0.3 m² 迎風面與抽取更換所需空間；向品硯／GAGGENAU 確認自行加裝碳床對保固的影響。</li>
       <li><strong>壓損實測</strong>——碳床完成後實測風量，若較設計值下降超過兩成，於碳床後方加裝靜音型管道增壓風機。</li>
