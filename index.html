@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light dark">
-<meta name="description" content="四維路住宅 廚房中島排煙方案：檯面下吸式（內循環）的能力邊界與三層補強做法">
+<meta name="description" content="四維路住宅 廚房中島排煙方案：方案比較與三層加強做法">
 <title>四維路 中島排煙方案</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -66,101 +66,82 @@ body {
   color: var(--ink);
   font-family: "Noto Sans TC", -apple-system, "Segoe UI", "Microsoft JhengHei", sans-serif;
   font-size: 16px;
-  line-height: 1.85;
+  line-height: 1.8;
   -webkit-font-smoothing: antialiased;
 }
 
 .page {
-  max-width: 820px;
+  max-width: 720px;
   margin: 0 auto;
-  padding: 72px 28px 120px;
+  padding: 68px 28px 100px;
   display: flex;
   flex-direction: column;
-  gap: 62px;
+  gap: 56px;
 }
 
-/* ---------- masthead ---------- */
-
-.masthead { display: flex; flex-direction: column; gap: 18px; }
-
+.masthead { display: flex; flex-direction: column; gap: 16px; }
 .project {
   font-family: "IBM Plex Mono", ui-monospace, monospace;
   font-size: 11.5px; letter-spacing: 0.18em; text-transform: uppercase;
   color: var(--ink-soft); display: flex; gap: 14px; flex-wrap: wrap;
 }
-
 .masthead h1 {
   font-family: "Noto Serif TC", Georgia, serif;
-  font-weight: 600; font-size: clamp(30px, 5.5vw, 42px);
+  font-weight: 600; font-size: clamp(29px, 5.5vw, 38px);
   line-height: 1.35; margin: 0; text-wrap: balance;
 }
 
-.standfirst { font-size: 17px; color: var(--ink-mid); margin: 0; max-width: 60ch; }
-
-/* ---------- sections ---------- */
-
-section { display: flex; flex-direction: column; gap: 24px; }
-.sec-head { display: flex; flex-direction: column; gap: 8px; }
-
+section { display: flex; flex-direction: column; gap: 20px; }
+.sec-head { display: flex; flex-direction: column; gap: 7px; }
 .eyebrow {
   font-family: "IBM Plex Mono", ui-monospace, monospace;
   font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-soft);
 }
-
 h2 {
   font-family: "Noto Serif TC", Georgia, serif;
-  font-weight: 600; font-size: 25px; line-height: 1.5; margin: 0; text-wrap: balance;
+  font-weight: 600; font-size: 23px; line-height: 1.5; margin: 0; text-wrap: balance;
 }
-
-h3 { font-weight: 500; font-size: 17px; margin: 0; line-height: 1.6; }
-
-p { margin: 0; max-width: 64ch; }
+p { margin: 0; max-width: 60ch; }
 .muted { color: var(--ink-mid); }
 
-ul.pts { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 11px; }
-ul.pts li { padding-left: 20px; position: relative; max-width: 63ch; }
+ul.pts { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+ul.pts li { padding-left: 19px; position: relative; max-width: 60ch; }
 ul.pts li::before {
-  content: ""; position: absolute; left: 0; top: 0.72em;
+  content: ""; position: absolute; left: 0; top: 0.7em;
   width: 7px; height: 1px; background: var(--ink-soft);
 }
 
-/* ---------- verdict ---------- */
-
 .verdict {
   background: var(--accent-bg); border-left: 3px solid var(--accent);
-  padding: 26px 30px; display: flex; flex-direction: column; gap: 9px;
+  padding: 24px 28px; display: flex; flex-direction: column; gap: 7px;
 }
 .verdict .tag {
   font-family: "IBM Plex Mono", ui-monospace, monospace;
   font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent);
 }
-.verdict p { margin: 0; }
 .verdict .call {
   font-family: "Noto Serif TC", Georgia, serif;
-  font-size: 20px; font-weight: 600; line-height: 1.6; color: var(--ink); max-width: 48ch;
+  font-size: 19px; font-weight: 600; line-height: 1.55; margin: 0;
 }
-.verdict .because { color: var(--ink-mid); font-size: 15.5px; max-width: 60ch; }
-
-/* ---------- callouts ---------- */
+.verdict .models {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 12.5px; color: var(--ink-mid); margin: 0;
+}
 
 .callout {
-  padding: 22px 24px; display: flex; flex-direction: column; gap: 9px;
-  border-left: 3px solid var(--caution); background: var(--caution-bg);
+  padding: 20px 22px; display: flex; flex-direction: column; gap: 7px;
+  border-left: 3px solid var(--accent); background: var(--accent-bg);
 }
-.callout.calm { border-left-color: var(--accent); background: var(--accent-bg); }
 .callout .lbl {
   font-family: "IBM Plex Mono", ui-monospace, monospace;
-  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--caution);
+  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent);
 }
-.callout.calm .lbl { color: var(--accent); }
-.callout p { max-width: 62ch; }
-
-/* ---------- tables ---------- */
+.callout p { max-width: 58ch; }
 
 .tbl-wrap { overflow-x: auto; }
-table.spec { width: 100%; border-collapse: collapse; font-size: 14.5px; min-width: 460px; }
+table.spec { width: 100%; border-collapse: collapse; font-size: 14.5px; min-width: 420px; }
 table.spec th, table.spec td {
-  text-align: left; padding: 12px 14px;
+  text-align: left; padding: 12px 13px;
   border-bottom: 1px solid var(--rule-soft); vertical-align: top;
 }
 table.spec thead th {
@@ -168,32 +149,25 @@ table.spec thead th {
   font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
   color: var(--ink-soft); font-weight: 500; border-bottom: 1px solid var(--rule);
 }
-table.spec tbody th { font-weight: 400; color: var(--ink-mid); width: 26%; }
+table.spec tbody th { font-weight: 400; color: var(--ink-mid); width: 27%; }
 td.num {
   font-family: "IBM Plex Mono", ui-monospace, monospace;
   font-variant-numeric: tabular-nums; font-size: 13.5px;
 }
 td.good { color: var(--accent); }
-td.warn { color: var(--caution); }
-.footnote { font-size: 13.5px; color: var(--ink-soft); max-width: 64ch; }
-
-/* ---------- figures ---------- */
 
 figure {
   margin: 0; background: var(--surface); border: 1px solid var(--rule);
-  padding: 26px 24px 20px; display: flex; flex-direction: column; gap: 16px;
+  padding: 24px 22px 18px; display: flex; flex-direction: column; gap: 14px;
 }
 figure svg { width: 100%; height: auto; display: block; font-family: "Noto Sans TC", sans-serif; }
-figcaption { font-size: 13.5px; color: var(--ink-soft); line-height: 1.75; max-width: 68ch; }
+figcaption { font-size: 13.5px; color: var(--ink-soft); line-height: 1.7; max-width: 62ch; }
 
 .dg-line   { stroke: currentColor; fill: none; stroke-width: 1.4; }
-.dg-thin   { stroke: currentColor; fill: none; stroke-width: 1; opacity: 0.55; }
-.dg-dash   { stroke: currentColor; fill: none; stroke-width: 1; stroke-dasharray: 4 4; opacity: 0.5; }
+.dg-thin   { stroke: currentColor; fill: none; stroke-width: 1; opacity: 0.5; }
 .dg-solid  { fill: currentColor; opacity: 0.82; }
 .dg-panel  { fill: var(--accent); opacity: 0.3; }
 .dg-cap    { fill: var(--accent); opacity: 0.15; }
-.dg-caps   { stroke: var(--accent); fill: none; stroke-width: 1.3; }
-.dg-arrow  { stroke: var(--accent); fill: none; stroke-width: 1.4; }
 .dg-esc    { stroke: var(--caution); fill: none; stroke-width: 1.4; }
 .dg-band   { fill: var(--surface-2); stroke: var(--rule); stroke-width: 1; }
 .dg-carbon { fill: var(--accent); opacity: 0.2; }
@@ -205,93 +179,38 @@ figcaption { font-size: 13.5px; color: var(--ink-soft); line-height: 1.75; max-w
 .dg-n      { fill: var(--accent); font-size: 11px; font-family: "IBM Plex Mono", monospace; }
 .mk-a      { fill: var(--accent); }
 .mk-c      { fill: var(--caution); }
-.mk-i      { fill: currentColor; }
-
-/* ---------- 氣流動畫 ---------- */
 
 .flow {
-  fill: none;
-  stroke-width: 1.8;
-  stroke-linecap: round;
-  stroke-dasharray: 7 9;
-  animation: flow 1.5s linear infinite;
+  fill: none; stroke: var(--accent); stroke-width: 1.8; stroke-linecap: round;
+  stroke-dasharray: 7 9; animation: flow 1.5s linear infinite;
 }
-.flow-a { stroke: var(--accent); }
-.flow-c { stroke: var(--caution); }
 @keyframes flow { to { stroke-dashoffset: -16; } }
-
-.puff { opacity: 0; }
-.puff-r { animation: puffR 4.4s linear infinite; }
-.puff-l { animation: puffL 4.4s linear infinite; }
-.d1 { animation-delay: 0s; }
-.d2 { animation-delay: 1.45s; }
-.d3 { animation-delay: 2.9s; }
-
-@keyframes puffR {
-  0%   { transform: translateX(0);     opacity: 0; }
-  12%  { opacity: .85; }
-  80%  { opacity: .85; }
-  100% { transform: translateX(168px); opacity: 0; }
-}
-@keyframes puffL {
-  0%   { transform: translateX(0);      opacity: .85; }
-  62%  { transform: translateX(-150px); opacity: .85; }
-  100% { transform: translateX(-150px) translateY(-96px); opacity: 0; }
-}
-
 @media (prefers-reduced-motion: reduce) {
   .flow { animation: none; stroke-dasharray: none; opacity: .85; }
-  .puff { animation: none; opacity: .85; }
 }
-
-/* ---------- 判定列 ---------- */
-
-.rule-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-.rule {
-  border: 1px solid var(--rule); background: var(--surface);
-  padding: 20px 22px; display: flex; flex-direction: column; gap: 6px;
-}
-.rule.no  { border-left: 3px solid var(--caution); }
-.rule.yes { border-left: 3px solid var(--accent); }
-.rule .verdict-k {
-  font-family: "IBM Plex Mono", ui-monospace, monospace;
-  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
-}
-.rule.no  .verdict-k { color: var(--caution); }
-.rule.yes .verdict-k { color: var(--accent); }
-.rule .what { font-weight: 500; font-size: 17px; }
-.rule p { font-size: 14.5px; color: var(--ink-mid); }
-
-/* ---------- layers ---------- */
 
 .layer {
   background: var(--surface); border: 1px solid var(--rule);
   border-left: 3px solid var(--accent);
-  padding: 26px 28px; display: flex; flex-direction: column; gap: 14px;
+  padding: 24px 26px; display: flex; flex-direction: column; gap: 14px;
 }
-.layer-head { display: flex; flex-direction: column; gap: 4px; }
+.layer-head { display: flex; flex-direction: column; gap: 3px; }
 .layer-n {
   font-family: "IBM Plex Mono", ui-monospace, monospace;
   font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft);
 }
-.layer-t { font-family: "Noto Serif TC", Georgia, serif; font-size: 19px; font-weight: 600; line-height: 1.5; }
-.layers { display: flex; flex-direction: column; gap: 18px; }
-
-/* ---------- checklist ---------- */
-
-ol.checks { margin: 0; padding-left: 1.3em; display: flex; flex-direction: column; gap: 12px; }
-ol.checks li { max-width: 62ch; padding-left: 4px; }
-ol.checks li::marker { font-family: "IBM Plex Mono", monospace; font-size: 13px; color: var(--ink-soft); }
+.layer-t { font-family: "Noto Serif TC", Georgia, serif; font-size: 18px; font-weight: 600; line-height: 1.5; }
+.layers { display: flex; flex-direction: column; gap: 16px; }
 
 footer {
-  border-top: 1px solid var(--rule); padding-top: 22px;
-  font-size: 13px; color: var(--ink-soft); display: flex; flex-direction: column; gap: 5px;
+  border-top: 1px solid var(--rule); padding-top: 20px;
+  font-size: 13px; color: var(--ink-soft); display: flex; flex-direction: column; gap: 4px;
 }
 
-@media (max-width: 620px) {
-  .page { padding: 48px 20px 80px; gap: 50px; }
-  .layer { padding: 22px 20px; }
-  figure { padding: 20px 16px 16px; }
+@media (max-width: 600px) {
+  .page { padding: 46px 20px 72px; gap: 46px; }
+  .layer { padding: 20px 18px; }
+  figure { padding: 18px 14px 14px; }
 }
 </style>
 </head>
@@ -304,460 +223,211 @@ footer {
       <span>廚房・中島</span>
       <span>2026.08.27</span>
     </div>
-    <h1>中島排煙<br>方案 A 定案與補強做法</h1>
-    <p class="standfirst">已確認採用檯面下吸式排煙機（內循環）。這份文件說明它的能力邊界在哪裡，以及用什麼方式把不足的地方補起來。</p>
+    <h1>中島排煙方案</h1>
   </header>
 
   <div class="verdict">
     <span class="tag">定案</span>
-    <p class="call">方案 A ─ 感應爐 + 檯面下吸式排煙機（內循環）</p>
-    <p class="because">GAGGENAU CI282102 FlexInduction 80cm　+　GAGGENAU AL200180 檯面升降式 80cm。以本案的烹調型態（不做中式快炒，主要為煎烤）評估，這個選擇是可行的。</p>
+    <p class="call">感應爐 + 檯面下吸式排煙機</p>
+    <p class="models">GAGGENAU CI282102　+　GAGGENAU AL200180</p>
   </div>
 
   <section>
     <div class="sec-head">
-      <span class="eyebrow">為什麼不選 B</span>
-      <h2>兩案的簡要區別</h2>
+      <span class="eyebrow">一</span>
+      <h2>兩個方案的比較</h2>
     </div>
+
     <div class="tbl-wrap">
       <table class="spec">
         <thead>
           <tr>
             <th scope="col"></th>
-            <th scope="col">方案 A ・ 檯面下吸（定案）</th>
-            <th scope="col">方案 B ・ 中島罩式</th>
+            <th scope="col">A ・ 檯面下吸（定案）</th>
+            <th scope="col">B ・ 中島罩式</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">排煙路徑</th>
-            <td class="warn">內循環（下方無管路可拉）</td>
-            <td>排出室外</td>
-          </tr>
-          <tr>
-            <th scope="row">風量</th>
-            <td class="num">447 / 562 m³/h</td>
-            <td class="num">1100 m³/h</td>
-          </tr>
-          <tr>
-            <th scope="row">水氣與熱</th>
-            <td class="warn">留在室內</td>
-            <td>隨廢氣排出</td>
-          </tr>
           <tr>
             <th scope="row">中島視線</th>
             <td class="good">完全乾淨，上方無物</td>
             <td>上方有 177 cm 罩體</td>
           </tr>
+          <tr>
+            <th scope="row">風量</th>
+            <td class="num">562 m³/h</td>
+            <td class="num">1100 m³/h</td>
+          </tr>
+          <tr>
+            <th scope="row">捕捉能力</th>
+            <td>近距離有效，範圍較窄</td>
+            <td class="good">涵蓋範圍大</td>
+          </tr>
+          <tr>
+            <th scope="row">爐具</th>
+            <td>感應爐</td>
+            <td>瓦斯爐</td>
+          </tr>
         </tbody>
       </table>
     </div>
-    <p class="footnote">B 案的排煙表現較好，但代價是中島上方永久掛一座罩體。業主選擇保留中島的視覺完整性，後續所有規劃以此為前提。</p>
-  </section>
 
-  <section>
-    <div class="sec-head">
-      <span class="eyebrow">使用情境</span>
-      <h2>煎牛排，對下吸式其實是友善的</h2>
-    </div>
-    <p class="muted">確認不做中式快炒之後，主要的考驗就是煎牛排。這對下吸式來說是<strong>相對有利</strong>的情境：</p>
-    <ul class="pts">
-      <li>平底鍋貼著檯面，油煙產生的位置低、範圍集中，正好落在下吸式的有效區內。</li>
-      <li>沒有顛鍋、沒有把鍋子舉離檯面的動作。</li>
-      <li>水氣量少——不像煮湯或中式快炒會產生大量蒸氣。</li>
-    </ul>
-    <p class="muted">需要留意的是另一面：煎牛排的油煙<strong>濃度高、是細油脂微粒，氣味重且容易附著在布面上</strong>。碳床的負擔幾乎都來自這類烹調，前置濾網要勤換。</p>
-
-    <div class="callout calm">
-      <span class="lbl">關於「先煎後烤」的建議</span>
-      <p>用烤箱分擔煎的工作，方向完全正確。但<strong>建議把順序反過來</strong>：先以低溫烤箱（約 120°C）把牛排中心烤到接近目標溫度，取出後用鑄鐵鍋大火<strong>快速煎 60–90 秒</strong>上色即可。</p>
-      <p class="muted">理由有兩個。烤過的表面是乾的，上色速度快很多，冒煙時間可以從三、四分鐘壓縮到一分鐘以內，而且集中在最後那一下——排煙機開加強檔撐過那一分鐘就結束了。熟度也會比先煎後烤更均勻，這是餐廳常用的手法。</p>
-    </div>
-
-    <div class="callout">
-      <span class="lbl">但有一件事要先知道</span>
-      <p><strong>烤箱的氣味不會被排煙機處理到。</strong>嵌入式烤箱裝在高櫃，它的排氣口不在中島上方，下吸式完全捕捉不到。把烹調移進烤箱不是消除氣味，而是把氣味移到「沒有被捕捉」的位置——強度低很多，但確實是沒被處理的。</p>
-      <p class="muted">所以烤箱的用途是<strong>縮短冒煙的時間</strong>，不是取代排煙。</p>
-    </div>
-  </section>
-
-  <section>
-    <div class="sec-head">
-      <span class="eyebrow">核心問題</span>
-      <h2>擴散控制：下吸與上吸的差別</h2>
-    </div>
-    <p class="muted">這兩種排煙機不是「同一件事做得好或不好」，而是<strong>用完全不同的機制在控制油煙擴散</strong>。理解這一點，後面所有的補強做法就都說得通了。</p>
+    <p class="muted">B 案的排煙表現較好，但中島上方必須永久掛一座罩體。選擇 A 案，是把中島的視覺完整性放在第一位——後續的規劃，就是把排煙能力補回來。</p>
 
     <figure>
-      <svg viewBox="0 0 760 400" role="img" aria-label="剖面比較圖。左側下吸式：有效捕捉區只是鍋邊到抽風口之間、高度約二十五到三十公分的一塊窄區域，超過這個高度的油煙直接逸散到室內。右側罩式：油煙靠浮力自行上升，一路擴散成三到四倍寬，但整段上升路徑都在寬大罩體的涵蓋範圍內。">
+      <svg viewBox="0 0 760 330" role="img" aria-label="剖面比較。下吸式的有效捕捉區是鍋邊一塊窄而低的區域，超出後油煙逸散；罩式的油煙靠浮力上升，整段路徑都在寬大罩體的涵蓋範圍內。">
         <defs>
-          <marker id="ar-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-            <path d="M 0 0 L 10 5 L 0 10 z" class="mk-a"></path>
-          </marker>
-          <marker id="ar-c" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <marker id="e-c" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
             <path d="M 0 0 L 10 5 L 0 10 z" class="mk-c"></path>
           </marker>
-          <marker id="ar-i" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
-            <path d="M 0 0 L 10 5 L 0 10 z" class="mk-i"></path>
+          <marker id="e-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" class="mk-a"></path>
           </marker>
         </defs>
 
-        <!-- ========== PANEL A : downdraft ========== -->
-        <text x="30" y="30" class="dg-tt">下吸式（方案 A）— 靠「近距離高風速」</text>
+        <text x="30" y="32" class="dg-tt">下吸式（A 案）</text>
+        <polygon points="100,270 112,244 160,228 238,214 238,270" class="dg-cap"></polygon>
+        <line x1="40" y1="270" x2="350" y2="270" class="dg-line"></line>
+        <rect x="70" y="265" width="150" height="5" class="dg-solid"></rect>
+        <path d="M 112 252 L 168 252 L 163 268 L 117 268 Z" class="dg-solid"></path>
+        <rect x="230" y="260" width="16" height="10" class="dg-solid"></rect>
+        <rect x="234" y="212" width="7" height="48" class="dg-panel"></rect>
+        <path d="M 140 248 C 132 208 146 180 134 152" class="dg-esc" marker-end="url(#e-c)"></path>
+        <path d="M 154 248 C 160 210 146 184 162 158" class="dg-esc" marker-end="url(#e-c)"></path>
+        <text x="52" y="132" class="dg-tc">超出範圍就抓不到</text>
+        <text x="252" y="238" class="dg-ta">升降屏板</text>
 
-        <!-- capture zone -->
-        <polygon points="100,320 112,290 160,272 236,258 236,320" class="dg-cap"></polygon>
-        <polyline points="100,320 112,290 160,272 236,258" class="dg-caps" stroke-dasharray="5 3"></polyline>
+        <text x="410" y="32" class="dg-tt">罩式（B 案）</text>
+        <polygon points="502,252 548,252 660,132 456,132" class="dg-cap"></polygon>
+        <rect x="430" y="110" width="290" height="22" class="dg-solid"></rect>
+        <line x1="420" y1="270" x2="730" y2="270" class="dg-line"></line>
+        <rect x="450" y="265" width="150" height="5" class="dg-solid"></rect>
+        <path d="M 492 252 L 548 252 L 543 268 L 497 268 Z" class="dg-solid"></path>
+        <line x1="500" y1="240" x2="480" y2="148" class="dg-line" marker-end="url(#e-a)"></line>
+        <line x1="525" y1="240" x2="525" y2="148" class="dg-line" marker-end="url(#e-a)"></line>
+        <line x1="550" y1="240" x2="570" y2="148" class="dg-line" marker-end="url(#e-a)"></line>
+        <text x="596" y="196" class="dg-ta">罩體涵蓋範圍大</text>
 
-        <!-- counter -->
-        <line x1="40" y1="320" x2="350" y2="320" class="dg-line"></line>
-        <rect x="70" y="315" width="150" height="5" class="dg-solid"></rect>
-
-        <!-- pan -->
-        <path d="M 112 300 L 168 300 L 163 316 L 117 316 Z" class="dg-solid"></path>
-        <line x1="168" y1="303" x2="196" y2="298" class="dg-line"></line>
-
-        <!-- downdraft unit -->
-        <rect x="230" y="310" width="16" height="10" class="dg-solid"></rect>
-        <rect x="234" y="252" width="7" height="60" class="dg-panel"></rect>
-        <text x="252" y="268" class="dg-ta">升降屏板</text>
-        <text x="252" y="284" class="dg-ts">約 25–30 cm</text>
-
-        <!-- intake arrows -->
-        <line x1="180" y1="284" x2="226" y2="278" class="dg-arrow" marker-end="url(#ar-a)"></line>
-        <line x1="180" y1="306" x2="226" y2="302" class="dg-arrow" marker-end="url(#ar-a)"></line>
-
-        <!-- escaping smoke -->
-        <path d="M 140 296 C 132 250 146 214 132 178" class="dg-esc" marker-end="url(#ar-c)"></path>
-        <path d="M 152 296 C 158 252 142 220 158 182" class="dg-esc" marker-end="url(#ar-c)"></path>
-        <text x="96" y="160" class="dg-tc">超出有效區 → 直接逸散到室內</text>
-
-        <!-- effective-zone ceiling line -->
-        <line x1="60" y1="258" x2="232" y2="258" class="dg-dash"></line>
-        <text x="60" y="250" class="dg-ts">有效捕捉區上緣</text>
-
-        <!-- ========== PANEL B : canopy hood ========== -->
-        <text x="410" y="30" class="dg-tt">罩式（方案 B）— 靠「順勢上升 + 罩體容納」</text>
-
-        <!-- capture cone -->
-        <polygon points="502,300 548,300 664,150 452,150" class="dg-cap"></polygon>
-
-        <!-- canopy -->
-        <rect x="430" y="126" width="290" height="24" class="dg-solid"></rect>
-        <rect x="560" y="96" width="30" height="30" class="dg-solid"></rect>
-        <line x1="575" y1="96" x2="575" y2="66" class="dg-line" marker-end="url(#ar-i)"></line>
-        <text x="596" y="82" class="dg-ts">排出室外</text>
-
-        <!-- counter -->
-        <line x1="420" y1="320" x2="730" y2="320" class="dg-line"></line>
-        <rect x="450" y="315" width="150" height="5" class="dg-solid"></rect>
-
-        <!-- pan -->
-        <path d="M 492 300 L 548 300 L 543 316 L 497 316 Z" class="dg-solid"></path>
-        <line x1="548" y1="303" x2="576" y2="298" class="dg-line"></line>
-
-        <!-- rising arrows -->
-        <line x1="500" y1="286" x2="478" y2="166" class="dg-arrow" marker-end="url(#ar-a)"></line>
-        <line x1="525" y1="286" x2="525" y2="166" class="dg-arrow" marker-end="url(#ar-a)"></line>
-        <line x1="550" y1="286" x2="572" y2="166" class="dg-arrow" marker-end="url(#ar-a)"></line>
-
-        <!-- height dimension -->
-        <line x1="440" y1="150" x2="440" y2="320" class="dg-thin"></line>
-        <line x1="434" y1="150" x2="446" y2="150" class="dg-thin"></line>
-        <line x1="434" y1="320" x2="446" y2="320" class="dg-thin"></line>
-        <text x="396" y="240" class="dg-ts">65–75</text>
-        <text x="400" y="256" class="dg-ts">cm</text>
-
-        <text x="632" y="212" class="dg-ta">油煙自己往上</text>
-        <text x="632" y="230" class="dg-ta">罩體只要接住</text>
-
-        <!-- ========== legend ========== -->
-        <line x1="30" y1="358" x2="730" y2="358" class="dg-thin"></line>
-        <rect x="30" y="372" width="22" height="11" class="dg-cap"></rect>
-        <text x="60" y="382" class="dg-ts">有效捕捉區</text>
-        <line x1="160" y1="378" x2="188" y2="378" class="dg-esc"></line>
-        <text x="196" y="382" class="dg-ts">逸散的油煙</text>
+        <rect x="30" y="296" width="20" height="10" class="dg-cap"></rect>
+        <text x="58" y="305" class="dg-ts">有效捕捉區</text>
       </svg>
-      <figcaption>下吸式的有效捕捉區是鍋邊一塊窄而低的區域；罩式則讓油煙沿著自己的浮力上升，整段路徑都在罩體涵蓋範圍內。兩者的差別不在馬力，而在「涵蓋範圍」與「容錯空間」。（示意圖，比例經簡化）</figcaption>
+      <figcaption>下吸式抓的是剛離開鍋子、還沒擴散的油煙，範圍窄但很直接；罩式順著油煙自然上升的方向接住，涵蓋範圍大。這個差別，決定了下面第一層的使用建議。</figcaption>
     </figure>
+  </section>
 
-    <h3>誰的擴散控制比較好？</h3>
-    <p class="muted"><strong>就「範圍」與「容錯」而言，罩式明顯較好。</strong>它順著油煙自然上升的方向工作，而且罩體本身就是一個容納空間——即使風機不夠強，油煙也會先被罩住，不會立刻散開。</p>
-    <p class="muted"><strong>但在有效區之內，下吸式的控制其實更直接。</strong>它抓的是剛離開鍋子、還沒開始擴散的油煙；罩式則是讓油煙先上升 70 公分，這段過程中會不斷捲入室內空氣，抵達罩體時已經擴散成三、四倍寬。</p>
+  <section>
+    <div class="sec-head">
+      <span class="eyebrow">二</span>
+      <h2>煎牛排，對下吸式是友善的</h2>
+    </div>
+    <p class="muted">確認不做中式快炒之後，主要的考驗就是煎牛排——而這對下吸式其實有利：平底鍋貼著檯面，油煙產生的位置低、範圍集中，正好在有效區內，也沒有大量蒸氣。</p>
 
     <div class="callout">
-      <span class="lbl">關鍵在這一句</span>
-      <p><strong>下吸式不是「比較弱」，而是「容錯範圍窄，而且失效是斷崖式的」。</strong></p>
-      <p class="muted">任何抽風口的風速都會隨距離急遽衰減——大約在一個開口寬度以外，風速就只剩面速的一成。抽風沒有辦法「伸出手」去抓遠處的空氣。所以下吸式在有效區內表現很好，一旦超出（鍋壁太高、蒸氣量大、鍋子放太前面、有橫向氣流），幾乎立刻歸零，不是慢慢變差。</p>
-    </div>
-
-    <div class="callout calm">
-      <span class="lbl">因此，補強的邏輯只有兩件事</span>
-      <p><strong>一、把烹調行為留在那個窄窄的有效區裡。</strong>　<strong>二、處理跑掉的那一部分。</strong></p>
-      <p class="muted">下面三個層次的做法，全部是在做這兩件事。</p>
+      <span class="lbl">建議的做法</span>
+      <p>先用低溫烤箱（約 120°C）把牛排中心烤到接近目標溫度，取出後再用鑄鐵鍋大火<strong>快速煎 60–90 秒</strong>上色。</p>
+      <p class="muted">烤過的表面是乾的，上色快很多，冒煙時間可以從三、四分鐘壓縮到一分鐘以內，而且集中在最後那一下。熟度也會比先煎後烤更均勻。</p>
     </div>
   </section>
 
   <section>
     <div class="sec-head">
-      <span class="eyebrow">順帶回答</span>
-      <h2>B 案會不會外溢？</h2>
-    </div>
-    <p class="muted">會，但性質完全不同——<strong>罩式的外溢是「設計問題」，可以靠尺寸和高度解決；下吸式的外溢是「物理問題」，是機制本身的限制。</strong></p>
-    <p class="muted">罩式會漏，通常是罩體太小、掛太高，或有橫向氣流。本案 B 是 177 cm 罩體配 80 cm 爐面，每邊外擴近 50 公分，涵蓋非常充裕，加上 1100 m³/h 排出式——以煎牛排這種情境，幾乎不會外溢。這也是 B 在排煙表現上勝出的原因。</p>
-  </section>
-
-  <section>
-    <div class="sec-head">
-      <span class="eyebrow">補強做法</span>
-      <h2>三個層次</h2>
+      <span class="eyebrow">三</span>
+      <h2>三層加強做法</h2>
     </div>
 
     <div class="layers">
 
       <div class="layer">
         <div class="layer-head">
-          <span class="layer-n">第一層 ・ 操作與配置</span>
-          <span class="layer-t">不用花錢，但效果最大</span>
+          <span class="layer-n">第一層 ・ 使用方式</span>
+          <span class="layer-t">不用花錢，效果最大</span>
         </div>
         <ul class="pts">
-          <li><strong>升降屏板一定要升到最高。</strong>那片玻璃不只是外觀，它是一道實際的擋板，擋住油煙往室內側擴散，並把它導向抽風口。這是 AL200180 比純平嵌機種強的地方。</li>
-          <li><strong>把主要烹調區設在靠抽風側。</strong>CI282102 是 FlexInduction，可以彈性設定加熱區位置——把常用的爐口設在靠近抽風口的後半部，等於直接縮短距離。</li>
-          <li><strong>用平底、低鍋壁的鍋具。</strong>高鍋壁會把油煙抬升到有效區之外。煎牛排用鑄鐵平底鍋正好符合。</li>
+          <li><strong>升降屏板升到最高。</strong>那片玻璃是實際的擋板，會把油煙導向抽風口。</li>
+          <li><strong>鍋子放在靠抽風側。</strong>感應爐可以彈性設定加熱區，把常用的爐口設在後半部。</li>
+          <li><strong>用平底、低鍋壁的鍋具。</strong>高鍋壁會把油煙抬到有效範圍之外。</li>
           <li><strong>提前 2 分鐘開機，關火後續抽 10–15 分鐘。</strong></li>
-          <li><strong>中島上方不要設吊扇，冷氣出風口不要朝向中島。</strong>橫向氣流對下吸式是致命的，傷害遠大於對罩式。這一條要在空調圖上一併確認。</li>
+          <li><strong>中島上方不要設吊扇，冷氣出風口不要朝向中島。</strong>橫向氣流對下吸式的干擾很大。</li>
         </ul>
       </div>
 
       <div class="layer">
         <div class="layer-head">
           <span class="layer-n">第二層 ・ 櫃內</span>
-          <span class="layer-t">用下櫃的空間，把除味能力補回來</span>
+          <span class="layer-t">用下櫃的空間把除味能力補回來</span>
         </div>
-        <p class="muted">原廠碳濾匣為了塞進機身做得很薄，設計取向是降低阻力，不是最大化除味。下櫃的空間可以把這件事補回來——<strong>迎風面積放大，風速就降下來，就能在阻力不變的前提下把碳床加厚好幾倍。</strong></p>
+        <p class="muted">原廠碳濾匣為了塞進機身做得很薄。下櫃的空間可以放一組大得多的活性碳床——迎風面積放大，風速就降下來，空氣有足夠時間被吸附。</p>
 
         <figure>
-          <svg viewBox="0 0 700 500" role="img" aria-label="中島剖面圖。油煙由檯面下吸口進入下櫃，依序通過金屬濾油網、前置濾網、加厚活性碳床、靜壓消音箱，最後由側面低速出風回到室內。另在天花板偏開爐面的位置設一支獨立小排氣，接往室外，負責排除殘留氣味與內循環排不掉的水氣和熱。">
+          <svg viewBox="0 0 660 440" role="img" aria-label="中島剖面。油煙由檯面下吸口進入下櫃，依序通過金屬濾油網、前置濾網、加厚活性碳床、靜壓消音箱，最後由側面低速出風回到室內。">
             <defs>
-              <marker id="a2-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <marker id="c-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
                 <path d="M 0 0 L 10 5 L 0 10 z" class="mk-a"></path>
-              </marker>
-              <marker id="a2-i" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
-                <path d="M 0 0 L 10 5 L 0 10 z" class="mk-i"></path>
               </marker>
             </defs>
 
-            <!-- ceiling -->
-            <line x1="40" y1="46" x2="660" y2="46" class="dg-line"></line>
-            <rect x="500" y="38" width="80" height="10" class="dg-solid"></rect>
-            <line x1="540" y1="38" x2="540" y2="14" class="dg-arrow" marker-end="url(#a2-a)"></line>
-            <text x="596" y="34" class="dg-ta">→ 室外</text>
-            <text x="430" y="76" class="dg-ta">獨立小排氣</text>
-            <text x="430" y="93" class="dg-ts">偏開爐面，200–300 m³/h</text>
+            <rect x="90" y="196" width="360" height="212" class="dg-line"></rect>
+            <rect x="130" y="191" width="150" height="5" class="dg-solid"></rect>
+            <path d="M 168 177 L 224 177 L 219 193 L 173 193 Z" class="dg-solid"></path>
+            <rect x="292" y="186" width="16" height="10" class="dg-solid"></rect>
+            <rect x="296" y="136" width="7" height="50" class="dg-panel"></rect>
 
-            <!-- distance marker between hob and ceiling exhaust -->
-            <line x1="250" y1="60" x2="500" y2="60" class="dg-dash"></line>
-            <text x="272" y="54" class="dg-ts">刻意錯開，避免與下吸互相拉扯</text>
+            <path d="M 242 168 L 288 162" class="flow" marker-end="url(#c-a)"></path>
+            <path d="M 300 198 L 300 220" class="flow" marker-end="url(#c-a)"></path>
 
-            <!-- island body -->
-            <rect x="120" y="250" width="360" height="220" class="dg-line"></rect>
-            <line x1="120" y1="250" x2="480" y2="250" class="dg-line"></line>
+            <rect x="110" y="226" width="320" height="24" class="dg-band"></rect>
+            <text x="122" y="242" class="dg-n">01</text>
+            <text x="154" y="243" class="dg-t">金屬濾油網</text>
 
-            <!-- hob + pan -->
-            <rect x="160" y="245" width="150" height="5" class="dg-solid"></rect>
-            <path d="M 198 231 L 254 231 L 249 247 L 203 247 Z" class="dg-solid"></path>
-            <rect x="322" y="240" width="16" height="10" class="dg-solid"></rect>
-            <rect x="326" y="188" width="7" height="52" class="dg-panel"></rect>
+            <rect x="110" y="258" width="320" height="24" class="dg-band"></rect>
+            <text x="122" y="274" class="dg-n">02</text>
+            <text x="154" y="275" class="dg-t">前置濾網</text>
 
-            <!-- intake + descent -->
-            <line x1="272" y1="222" x2="318" y2="216" class="dg-arrow" marker-end="url(#a2-a)"></line>
-            <line x1="330" y1="252" x2="330" y2="276" class="dg-arrow" marker-end="url(#a2-a)"></line>
+            <rect x="110" y="290" width="320" height="50" class="dg-band"></rect>
+            <rect x="110" y="290" width="320" height="50" class="dg-carbon"></rect>
+            <text x="122" y="312" class="dg-n">03</text>
+            <text x="154" y="313" class="dg-t">加厚活性碳床</text>
+            <text x="154" y="331" class="dg-ts">約 11 kg，原廠的十倍以上</text>
 
-            <!-- stages -->
-            <rect x="140" y="282" width="320" height="24" class="dg-band"></rect>
-            <text x="152" y="298" class="dg-n">01</text>
-            <text x="184" y="299" class="dg-t">金屬濾油網（原廠）</text>
+            <rect x="110" y="348" width="320" height="44" class="dg-band"></rect>
+            <text x="122" y="368" class="dg-n">04</text>
+            <text x="154" y="369" class="dg-t">靜壓消音箱</text>
+            <text x="154" y="386" class="dg-ts">內襯吸音材，降低運轉噪音</text>
 
-            <rect x="140" y="314" width="320" height="24" class="dg-band"></rect>
-            <text x="152" y="330" class="dg-n">02</text>
-            <text x="184" y="331" class="dg-t">前置濾網</text>
-            <text x="330" y="331" class="dg-ts">耗材，保護碳床</text>
+            <text x="466" y="352" class="dg-n">05</text>
+            <text x="466" y="370" class="dg-t">側面慢速出風</text>
+            <path d="M 452 384 L 508 384" class="flow" marker-end="url(#c-a)"></path>
+            <text x="466" y="404" class="dg-ts">風速極低，沒有吹拂感</text>
 
-            <rect x="140" y="346" width="320" height="52" class="dg-band"></rect>
-            <rect x="140" y="346" width="320" height="52" class="dg-carbon"></rect>
-            <text x="152" y="368" class="dg-n">03</text>
-            <text x="184" y="369" class="dg-t">加厚活性碳床</text>
-            <text x="184" y="388" class="dg-ts">0.3 m² ／ 深 7.5 cm ／ 約 11 kg</text>
-
-            <rect x="140" y="406" width="320" height="48" class="dg-band"></rect>
-            <text x="152" y="428" class="dg-n">04</text>
-            <text x="184" y="429" class="dg-t">靜壓消音箱</text>
-            <line x1="380" y1="406" x2="380" y2="440" class="dg-thin"></line>
-            <line x1="420" y1="420" x2="420" y2="454" class="dg-thin"></line>
-            <text x="184" y="447" class="dg-ts">內襯吸音材，氣流轉折降噪</text>
-
-            <!-- side discharge -->
-            <text x="498" y="402" class="dg-n">05</text>
-            <text x="498" y="420" class="dg-t">側面慢速出風</text>
-            <line x1="482" y1="434" x2="538" y2="434" class="dg-arrow" marker-end="url(#a2-a)"></line>
-            <text x="496" y="456" class="dg-ts">800–1200 cm² ／ &lt; 1 m/s</text>
-
-            <!-- floor -->
-            <line x1="60" y1="470" x2="640" y2="470" class="dg-line"></line>
+            <line x1="40" y1="408" x2="620" y2="408" class="dg-line"></line>
           </svg>
-          <figcaption>下櫃的完整氣流路徑，以及天花板那支獨立排氣的位置關係。碳床畫得比其他層厚，是因為它真的比較厚——那正是這個做法的重點。</figcaption>
+          <figcaption>油煙從檯面被吸下來，在下櫃裡依序通過四道處理，再從側面緩緩送回室內。碳床畫得比其他層厚，是因為它真的比較厚——那正是這個做法的重點。</figcaption>
         </figure>
 
         <div class="tbl-wrap">
           <table class="spec">
             <thead>
-              <tr><th scope="col">強化效果</th><th scope="col">原廠配置</th><th scope="col">櫃內強化後</th></tr>
+              <tr><th scope="col"></th><th scope="col">原廠配置</th><th scope="col">櫃內加強後</th></tr>
             </thead>
             <tbody>
               <tr><th scope="row">活性碳量</th><td class="num">約 1 kg 以下</td><td class="num good">約 11 kg</td></tr>
-              <tr><th scope="row">空氣接觸時間</th><td class="num">約 0.02 秒</td><td class="num good">約 0.14 秒</td></tr>
-              <tr><th scope="row">碳濾網更換週期</th><td class="num">6–12 個月</td><td class="num good">2–3 年</td></tr>
+              <tr><th scope="row">濾網更換週期</th><td class="num">6–12 個月</td><td class="num good">2–3 年</td></tr>
             </tbody>
           </table>
-        </div>
-
-        <div class="callout">
-          <span class="lbl">兩件不能省的事</span>
-          <p><strong>碳床必須能從櫃門直接抽取更換。</strong>若要拆解中島才換得到，實務上就等於永遠不會換，前面所有投資歸零。這在設計階段就要留好，事後補不了。</p>
-          <p><strong>碳飽和之後不只是失效，會反過來釋放氣味。</strong>「油煙機用久了反而有味」就是這個原因。更換週期請列入交屋說明。</p>
         </div>
       </div>
 
       <div class="layer">
         <div class="layer-head">
-          <span class="layer-n">第三層 ・ 額外工程</span>
-          <span class="layer-t">天花板做一支獨立小排氣 — 本案最值得加的一項</span>
+          <span class="layer-n">第三層 ・ 新風系統</span>
+          <span class="layer-t">煎東西的時候，記得打開</span>
         </div>
-        <p class="muted">內循環有一個補不了的洞：<strong>它永遠不排濕、不排熱。</strong>加厚碳床能處理氣味，但煮一鍋水產生的水氣和熱，全部留在室內。這一點靠任何濾網都改善不了。</p>
-        <p class="muted">但這裡有一個現成的機會——<strong>B 案原本要用的那條往上通到室外的管路，路徑是通的（大樑閃避已於工程面處理完成）。B 案不做了，那條路就空著。</strong></p>
-
-        <h3>那根管子要做「排氣」，不是「進氣」</h3>
-        <p class="muted">這是整個配置最關鍵、也最容易做反的一個決定。方向決定了油煙味最後往哪裡跑：</p>
-
-        <figure>
-          <svg viewBox="0 0 760 380" role="img" aria-label="動畫對照圖。左側做進氣：空氣被送進廚房，廚房形成正壓，氣流由廚房流向餐廳客廳，油煙味被推進生活空間。右側做排氣：空氣由廚房抽出，廚房形成負壓，氣流由餐廳客廳流向廚房再排出室外，油煙味被關在廚房內。">
-            <defs>
-              <marker id="f-c" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
-                <path d="M 0 0 L 10 5 L 0 10 z" class="mk-c"></path>
-              </marker>
-              <marker id="f-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
-                <path d="M 0 0 L 10 5 L 0 10 z" class="mk-a"></path>
-              </marker>
-            </defs>
-
-            <!-- ===== 左：進氣（錯） ===== -->
-            <text x="30" y="32" class="dg-tt">做進氣　→　廚房正壓</text>
-
-            <line x1="30" y1="86" x2="350" y2="86" class="dg-line"></line>
-            <line x1="30" y1="300" x2="350" y2="300" class="dg-line"></line>
-            <line x1="196" y1="86" x2="196" y2="300" class="dg-dash"></line>
-            <text x="44" y="110" class="dg-ts">廚房</text>
-            <text x="212" y="110" class="dg-ts">餐廳・客廳</text>
-
-            <rect x="72" y="238" width="96" height="62" class="dg-line"></rect>
-            <rect x="98" y="74" width="44" height="12" class="dg-solid"></rect>
-            <text x="150" y="70" class="dg-tc">進氣</text>
-
-            <path d="M 120 88 L 120 130" class="flow flow-c" marker-end="url(#f-c)"></path>
-            <path d="M 120 142 C 120 178 130 196 162 196 L 316 196" class="flow flow-c" marker-end="url(#f-c)"></path>
-
-            <circle cx="150" cy="196" r="5" class="puff puff-r d1" fill="var(--caution)"></circle>
-            <circle cx="150" cy="196" r="5" class="puff puff-r d2" fill="var(--caution)"></circle>
-            <circle cx="150" cy="196" r="5" class="puff puff-r d3" fill="var(--caution)"></circle>
-
-            <text x="44" y="228" class="dg-tc">正壓</text>
-            <text x="30" y="338" class="dg-tc">✗　味道被推進餐廳與客廳</text>
-
-            <!-- ===== 右：排氣（對） ===== -->
-            <text x="410" y="32" class="dg-tt">做排氣　→　廚房負壓</text>
-
-            <line x1="410" y1="86" x2="730" y2="86" class="dg-line"></line>
-            <line x1="410" y1="300" x2="730" y2="300" class="dg-line"></line>
-            <line x1="576" y1="86" x2="576" y2="300" class="dg-dash"></line>
-            <text x="424" y="110" class="dg-ts">廚房</text>
-            <text x="592" y="110" class="dg-ts">餐廳・客廳</text>
-
-            <rect x="452" y="238" width="96" height="62" class="dg-line"></rect>
-            <rect x="478" y="74" width="44" height="12" class="dg-solid"></rect>
-            <text x="530" y="70" class="dg-ta">排氣　→ 室外</text>
-
-            <path d="M 500 84 L 500 44" class="flow flow-a" marker-end="url(#f-a)"></path>
-            <path d="M 700 196 L 540 196 C 510 196 500 178 500 142" class="flow flow-a" marker-end="url(#f-a)"></path>
-
-            <circle cx="656" cy="196" r="5" class="puff puff-l d1" fill="var(--caution)"></circle>
-            <circle cx="656" cy="196" r="5" class="puff puff-l d2" fill="var(--caution)"></circle>
-            <circle cx="656" cy="196" r="5" class="puff puff-l d3" fill="var(--caution)"></circle>
-
-            <text x="424" y="228" class="dg-ta">負壓</text>
-            <text x="410" y="338" class="dg-ta">✓　味道被關在廚房，直接排出室外</text>
-          </svg>
-          <figcaption>橘色圓點代表油煙氣味。做進氣時廚房變正壓，氣流由廚房往生活空間流動，等於主動把味道推出去；做排氣時廚房變負壓，氣流由客廳流向廚房再排出，味道被關在廚房裡。這是所有廚房通風設計的基本原則。</figcaption>
-        </figure>
-
-        <div class="rule-row">
-          <div class="rule no">
-            <span class="verdict-k">不要這樣做</span>
-            <span class="what">進氣</span>
-            <p>不移除任何東西，只是把室外的熱空氣送進來，而且會把油煙味推進客廳。新風系統本來就在送風，這是重複投資。</p>
-          </div>
-          <div class="rule yes">
-            <span class="verdict-k">建議做法</span>
-            <span class="what">排氣</span>
-            <p>把油煙味、水氣、熱從源頭送出室外，並讓廚房維持微負壓，味道不會擴散到生活空間。</p>
-          </div>
-        </div>
-
-        <h3>與既有新風系統的分工</h3>
-        <p class="muted">本案已裝設新風系統與除濕設備，這讓「做排氣」這個結論更確定——<strong>送新鮮空氣進來這件事已經有系統在做了，缺的是把廚房產生的東西送出去的出口。</strong></p>
-        <p class="muted">新風系統對付油煙味只能靠稀釋，而稀釋的效率很低：<strong>要把污染濃度降一半，得把整個空間的換氣量加倍；但在源頭抽走，只需要足夠捕捉它的那一點風量。</strong>這也是不需要再升級成商用新風系統的原因——那是在解錯題。</p>
-
+        <p class="muted">中島的排煙是<strong>內循環</strong>——空氣經過濾後回到室內，不會排到室外。也就是說，廚房本身沒有對外的排氣。</p>
+        <p class="muted">煮飯產生的水氣和熱，以及碳濾網攔不下的那一小部分氣味，需要靠<strong>既有的新風系統</strong>換掉。</p>
         <div class="callout">
-          <span class="lbl">絕對不可以這樣接</span>
-          <p><strong>廚房排氣不可以接到新風系統上。</strong>全熱交換機的核心是熱交換芯體，廚房的油氣會在芯體上結膜並使其失效，而且芯體通常無法清洗，只能整顆更換。原廠說明多半明文禁止。</p>
-          <p class="muted">若水電或新風廠商提議「反正已經有新風，接過去就好」，請務必擋下。<strong>廚房排氣必須是完全獨立的一根管，與新風系統無任何交集。</strong></p>
+          <span class="lbl">給業主的一句話</span>
+          <p><strong>只要有煎、烤、爆香這類會冒煙的動作，就把新風系統打開，煮完再多開一段時間。</strong></p>
         </div>
-
-        <h3>建議規格</h3>
-        <div class="tbl-wrap">
-          <table class="spec">
-            <thead>
-              <tr><th scope="col">段位</th><th scope="col">風量</th><th scope="col">使用時機</th></tr>
-            </thead>
-            <tbody>
-              <tr><th scope="row">常時</th><td class="num">80–100 m³/h</td><td>全天低速運轉，處理殘留氣味</td></tr>
-              <tr><th scope="row">強檔</th><td class="num">200–250 m³/h</td><td>烹調期間與結束後 30 分鐘</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <ul class="pts">
-          <li><strong>為什麼要分兩段。</strong>新風系統多為平衡式（進出風量相等）。排氣若長時間全開，會打破平衡使室內轉為負壓，空氣改從門窗縫隙進入而<strong>繞過熱交換芯體</strong>，新風的除濕與節能效果等於白做。低速常時運轉幾乎不影響平衡，強檔只在烹調時開啟。</li>
-          <li><strong>管徑 ø100–150 mm 即可</strong>，比 B 案所需的大口徑管容易施作得多。</li>
-          <li><strong>位置要偏開爐面正上方。</strong>裝在正上方會把油煙往上拉，與下吸式互相拉扯。建議設於廚房區域邊緣。</li>
-          <li><strong>要問新風廠商：機器有沒有 boost 輸入、能否與廚房排氣連動。</strong>若可連動，排氣開強檔時新風同步加大送風，全程維持平衡，這是最理想的做法。</li>
-        </ul>
-
-        <div class="callout calm">
-          <span class="lbl">與除濕設備的關係</span>
-          <p>內循環會把烹調產生的水氣全部留在室內，<strong>除濕機必須多做一份工</strong>——耗電，而且除濕機本身還會放熱。排氣是在水氣擴散開來之前就送出室外，除濕機根本不需要處理它。這一支排氣對除濕負荷的幫助，是額外的好處。</p>
-        </div>
-
-        <div class="callout calm">
-          <span class="lbl">為什麼建議加</span>
-          <p>這一支排氣補的，正好是內循環<strong>唯一補不了的那個洞</strong>。成本與施工難度都不高，管路路徑已經確認可行，是這份文件裡投資報酬率最高的一項建議。</p>
-        </div>
-      </div>
-
-      <div class="layer">
-        <div class="layer-head">
-          <span class="layer-n">第四層 ・ 可選</span>
-          <span class="layer-t">獨立空氣清淨機作為第二道防線</span>
-        </div>
-        <p class="muted">在餐廳或客廳放一台 HEPA + 活性碳的空氣清淨機，處理擴散到開放空間的殘留油煙微粒與氣味。不需施工、隨時可以增減或升級，是最有彈性的一層。煎牛排產生的細油脂微粒正是它擅長處理的對象。</p>
       </div>
 
     </div>
@@ -765,33 +435,19 @@ footer {
 
   <section>
     <div class="sec-head">
-      <span class="eyebrow">提醒</span>
-      <h2>不建議加裝分解型除味設備</h2>
+      <span class="eyebrow">四</span>
+      <h2>維護</h2>
     </div>
-    <p class="muted">市面上會有廠商推薦加裝<strong>光觸媒、UV 紫外線臭氧、電漿或負離子</strong>模組。本案不建議採用：這類技術靠分解分子除味，過程會產生副產物（甲醛、乙醛、臭氧）。在排到室外的系統裡無所謂，但<strong>內循環會把這些副產物全部送回室內</strong>。此外油氣會在觸媒表面結膜，使其於數月內失效。</p>
-    <p class="muted">部分標示「光觸媒」的產品實際上會產生臭氧，臭氧是呼吸道刺激物，不應在室內循環使用。<strong>內循環廚房，活性碳是唯一效果可預期、且沒有副作用疑慮的做法。</strong></p>
-  </section>
-
-  <section>
-    <div class="sec-head">
-      <span class="eyebrow">下一步</span>
-      <h2>待確認事項</h2>
-    </div>
-    <ol class="checks">
-      <li><strong>天花板獨立排氣</strong>——請水電確認 B 案原規劃的管路路徑可否改作小排氣使用，決定出風位置（須偏開爐面），並確認是<strong>排氣</strong>而非進氣。</li>
-      <li><strong>新風系統連動</strong>——向新風廠商確認三件事：機器有無 boost 輸入可與廚房排氣連動、目前的送風量、以及是否為平衡式機種。</li>
-      <li><strong>不可併管</strong>——明確告知水電與新風廠商：廚房排氣須為獨立管路，<strong>不得接入新風系統或全熱交換機</strong>，以免油氣損壞熱交換芯體。</li>
-      <li><strong>空調與吊扇配置</strong>——確認中島上方無吊扇、冷氣出風口不朝向中島。此項對下吸式的影響很大，須在空調圖上一併檢討。</li>
-      <li><strong>下櫃碳床</strong>——確認櫃體尺寸可容納 0.3 m² 迎風面與抽取更換所需空間；向品硯／GAGGENAU 確認自行加裝碳床對保固的影響。</li>
-      <li><strong>壓損實測</strong>——碳床完成後實測風量，若較設計值下降超過兩成，於碳床後方加裝靜音型管道增壓風機。</li>
-      <li><strong>鍋具</strong>——確認現有鍋具適用感應爐；建議備一只鑄鐵平底鍋供煎牛排使用。</li>
-      <li><strong>瓦斯管線</strong>——確認中島瓦斯管線可取消，請水電同步調整。</li>
-    </ol>
+    <ul class="pts">
+      <li><strong>金屬濾油網</strong>可拆下放洗碗機清洗，建議每 1–2 個月一次。</li>
+      <li><strong>活性碳床約 2–3 年更換一次。</strong>碳飽和之後不只是失效，會反過來釋放氣味——「油煙機用久了反而有味」就是這個原因。</li>
+      <li><strong>碳床設計為從櫃門直接抽取更換</strong>，不需要拆解中島。</li>
+    </ul>
   </section>
 
   <footer>
     <span>四維路住宅・廚房中島排煙方案　|　ON DESIGN LAB</span>
-    <span>AL200180 之風量、噪音與除味率引用自 GAGGENAU 原廠規格書（EN 61591）。碳床、出風口與排氣風量為依本案條件之設計估算值，實際施作前須經現場複核。</span>
+    <span>風量與濾網數據引用自 GAGGENAU 原廠規格書。碳床規格為依本案風量之設計值，實際施作前經現場複核。</span>
   </footer>
 
 </div>
